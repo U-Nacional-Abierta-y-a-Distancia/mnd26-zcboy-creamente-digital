@@ -107,10 +107,11 @@ window.GUION = {
     puerta: { modelo: 'assets/modelos/puerta.glb', alto: 2.3, giro: 0, posicion: '-0.78 -0.62 1.6' }, // plegada contra el marco delantero, sin tapar la entrada
   },
 
-  // Puntos del territorio. De 80 a 100 sigue verde (conservado); de 40 a 79 está
-  // en riesgo; por debajo de 40, afectado. El paisaje se apaga de forma gradual.
-  // Reparto actual de lo que se puede perder: tienda 25, carretera 25, parada 50.
-  puntos: { inicio: 100, conservado: 80, riesgo: 40 },
+  // Puntos del territorio. De 80 a 100 sigue verde (conservado); de 50 a 79 está
+  // en riesgo; por debajo de 50, afectado. El paisaje se apaga de forma gradual.
+  // Lo que se puede perder: tienda 25, bus 15, parada 50. En el bus, botar la
+  // botella en la caneca recupera hasta 15.
+  puntos: { inicio: 100, conservado: 80, riesgo: 50 },
 
   nodos: [
     {
@@ -120,15 +121,17 @@ window.GUION = {
       cobertura: 120,
       audio: 'assets/audio/nodo0-tienda.mp3',
       ambiente: 'pueblo',
-      texto: '[Nodo 0: texto que orienta al viajero a su primera decisión]',
+      texto: '¿Qué se le ofrece, {nombre}? Tenemos para tomar, para comer y para el camino.',
       // La tienda se abre tocando el punto "Comprar" dentro de la escena.
       puntosDeInteres: [
-        { tipo: 'abrir', etiqueta: 'Comprar', pista: '[Pista para que el viajero toque la tienda]', angulo: 0, altura: 8 },
+        { tipo: 'abrir', etiqueta: 'Comprar', pista: 'Toca el punto que late sobre el tendero para ver qué hay.', angulo: 0, altura: 8 },
       ],
       decisiones: [
         {
           tipo: 'vitrina',
-          pregunta: '¿Qué se le ofrece, {nombre}?',
+          pregunta: 'Tenemos esto, {nombre}:',
+          despedida: 'Gracias por su compra, {nombre}. ¡Buen viaje!',
+          botonDespedida: 'Subir al bus',
           // Cada grupo es una fila: la opción responsable al lado de las de riesgo.
           // El viajero elige una por fila. "puntos" resta (negativo) o no afecta (0).
           // "imagen": foto en assets/images/; si no existe, sale la inicial.
@@ -184,17 +187,19 @@ window.GUION = {
       cobertura: 120,
       audio: 'assets/audio/nodo1-carretera.mp3',
       ambiente: 'motor',
-      texto: '[Nodo 1: situación en el bus, durante el recorrido]',
-      // Un residuo en el pasillo: hay que caminar hasta él para recogerlo.
+      texto: 'A un pasajero se le cae una botella en el pasillo.',
+      // La decisión se abre al tocar la botella del pasillo (o con el botón de la tarjeta).
       puntosDeInteres: [
-        { tipo: 'recoger', etiqueta: 'Recoger', forma: 'papel', posicion: '0.1 0.02 -4.6', cerca: 2.5, puntos: 5 },
+        { tipo: 'abrir', etiqueta: 'Mirar', pista: 'Toca la botella del pasillo.', forma: 'botella', posicion: '0.1 0.02 -2.6' },
       ],
       decisiones: [
         {
-          pregunta: '[Qué hacer con el residuo o elemento]',
+          pregunta: '¿Qué hacemos?',
+          // Botarla en la caneca recupera hasta 15 puntos (sin pasar de 100).
           opciones: [
-            { texto: 'Guardar la basura', puntos: 0, consecuencia: '[Consecuencia de guardarla]' },
-            { texto: 'Botarla por la ventana', puntos: -25, consecuencia: '[Consecuencia de botarla, sin alarmismo]' },
+            { texto: 'Botarla en la caneca', puntos: 15 },
+            { texto: 'Ignorarla', puntos: -5 },
+            { texto: 'Botarla por la ventana', puntos: -15 },
           ],
         },
       ],
@@ -236,8 +241,9 @@ window.GUION = {
     audio: 'assets/audio/final-paramo.mp3',
     ambiente: 'paramo',
     // Dato verificado que da sentido al resultado (con su fuente).
-    dato: '[Dato territorial verificado]',
-    fuenteDato: '[Fuente y año]',
+    dato: 'El 19 de septiembre de 2026 empezó un incendio en Villa de Leyva que alcanzó el Santuario de Iguaque. La afectación preliminar fue de 1.340 hectáreas y su causa está en investigación.',
+    fuenteDato: 'Gobernación de Boyacá y UNGRD, en RTVC Noticias, 23 de septiembre de 2026',
+    enlaceDato: 'https://www.rtvcnoticias.com/actualidad/incendio-en-el-santuario-de-iguaque-boyaca-alcanza-un-90-de-control-tras-afectar-1340',
   },
 
   // El mensaje de cada estado es texto de pantalla: lo redacta el equipo.
@@ -257,6 +263,7 @@ window.GUION = {
   // Solo fuentes que un integrante haya abierto y verificado.
   fuentes: [
     { dato: '90 % de probabilidad de El Niño a partir de septiembre de 2026', fuente: 'IDEAM y Minambiente, 11 de abril de 2026', url: 'https://www.ideam.gov.co/sala-de-prensa/noticia/ideam-y-minambiente-alertan-de-90-de-probabilidad-de-llegada-del-fenomeno-de-el-nino-para-septiembre' },
+    { dato: 'Incendio en el Santuario de Iguaque: 1.340 hectáreas de afectación preliminar, causa en investigación', fuente: 'Gobernación de Boyacá y UNGRD, en RTVC Noticias, 23 de septiembre de 2026', url: 'https://www.rtvcnoticias.com/actualidad/incendio-en-el-santuario-de-iguaque-boyaca-alcanza-un-90-de-control-tras-afectar-1340' },
     { dato: 'Línea gratuita de la UNGRD: 01-8000-113200', fuente: 'UNGRD, 6 de agosto de 2026', url: 'https://portal.gestiondelriesgo.gov.co/Paginas/Noticias/2026/Incendios-forestales-en-Colombia-el-SNGRD-actua-en-el-marco-del-Decreto-de-Desastre-Nacional.aspx' },
   ],
 };

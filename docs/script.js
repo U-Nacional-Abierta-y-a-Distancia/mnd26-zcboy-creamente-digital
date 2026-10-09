@@ -66,9 +66,13 @@
 
   function sumarPuntos(cantidad) {
     if (!cantidad) return;
+    const antes = s.puntos;
     s.puntos = Math.max(0, Math.min(100, s.puntos + cantidad));
     pintarEstado();
-    avisar(`${cantidad > 0 ? '+' : '−'}${Math.abs(cantidad)} puntos`, cantidad > 0 ? 'bien' : 'mal');
+    // Se avisa lo que cambió de verdad: sumar no pasa de 100.
+    const cambio = s.puntos - antes;
+    if (cambio) avisar(`${cambio > 0 ? '+' : '−'}${Math.abs(cambio)} puntos`, cambio > 0 ? 'bien' : 'mal');
+    else avisar('Sigues en 100 puntos', 'bien');
   }
 
   let relojAviso = 0;
@@ -274,7 +278,13 @@
       elegidos.forEach((mios) => mios.forEach((p) => { if (p.lleva) s.lleva.push(p.lleva); total += p.puntos || 0; }));
       sumarPuntos(total);
       pintarEstado();
-      avanzar();
+      // Despedida del tendero antes de subir al bus.
+      if (d.despedida) {
+        escribir({ lugar: nodo.lugar, texto: d.despedida });
+        botones(el.acciones, [{ texto: d.botonDespedida || 'Continuar', clase: 'principal', alHacer: avanzar }]);
+      } else {
+        avanzar();
+      }
     };
     el.vitrina.showModal();
   }
@@ -295,8 +305,10 @@
     (nodo.puntosDeInteres || []).forEach((p) => {
       const raiz = pieza(el.puntosInteres, 'a-entity', { position: posicionDe(p) });
       raiz.dataset.tipo = p.tipo;
-      if (p.tipo === 'recoger') residuo(raiz, p);
-      const marca = pieza(raiz, 'a-entity', { 'mira-al-viajero': '', position: p.tipo === 'recoger' ? '0 0.55 0' : '0 0 0' });
+      // Un punto puede mostrar un objeto (un residuo) con la marca flotando encima.
+      const conObjeto = p.tipo === 'recoger' || p.forma || p.modelo;
+      if (conObjeto) residuo(raiz, p);
+      const marca = pieza(raiz, 'a-entity', { 'mira-al-viajero': '', position: conObjeto ? '0 0.55 0' : '0 0 0' });
       pieza(marca, 'a-ring', {
         'radius-inner': 0.3, 'radius-outer': 0.36, material: 'shader: flat; color: #ffffff; opacity: 0.95; transparent: true',
         animation: 'property: scale; from: 1 1 1; to: 1.25 1.25 1.25; dir: alternate; loop: true; dur: 850; easing: easeInOutSine',
@@ -376,10 +388,10 @@
     escribir({ lugar: G.final.lugar, titulo: `${G.estados[e].nombre} · ${s.puntos} de 100`, texto: G.estados[e].mensaje });
     el.dato.hidden = false;
     el.dato.replaceChildren(document.createTextNode(conNombre(G.final.dato)), crear('small', G.final.fuenteDato));
-    botones(el.acciones, [
-      { texto: 'Continuar', clase: 'principal', alHacer: pantallaLlamado },
-      { texto: 'Ver este estado en mi entorno (cámara)', alHacer: abrirCamara },
-    ]);
+    const lista = [{ texto: 'Continuar', clase: 'principal', alHacer: pantallaLlamado }];
+    if (G.final.enlaceDato) lista.push({ texto: 'Ver la noticia', alHacer: () => window.open(G.final.enlaceDato, '_blank', 'noopener') });
+    lista.push({ texto: 'Ver este estado en mi entorno (cámara)', alHacer: abrirCamara });
+    botones(el.acciones, lista);
   }
 
   function pantallaLlamado() {
