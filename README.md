@@ -9,8 +9,8 @@
 | Campo | Respuesta |
 |---|---|
 | Equipo | CreaMente Digital |
-| Zona / Centro(s) | ZCBOY / [centros de los integrantes] |
-| Tipo de producto (Tabla 1 del documento técnico) | Realidad virtual / 360° y web interactiva [confirmar con el equipo] |
+| Zona / Centro(s) | ZCBOY (Zona Centro Boyacá) |
+| Tipo de producto (Tabla 1 del documento técnico) | Realidad extendida: recorrido 360° / realidad virtual en web, con narrativa interactiva |
 | Integrantes (solo nombres completos) | Adriana Fernanda González Guerrero, Andrés Felipe Morales Vega, Cesar David Monroy Rodríguez |
 | Enlace al demo web (si aplica) | https://u-nacional-abierta-y-a-distancia.github.io/mnd26-zcboy-creamente-digital/ |
 
@@ -18,13 +18,15 @@
 
 ## ¿De qué trata? (máximo 5 líneas)
 
-[Texto del equipo: reto y eje, territorio, público, conducta objetivo y qué vive el usuario.]
+Responde al reto «Territorios frente a "El Niño"», en el eje de prevención de incendios de la cobertura vegetal. Es un recorrido interactivo en 360° por Boyacá: el viajero compra en una tienda de Tunja, viaja en bus, para cerca de Chíquiza y llega al Santuario de Fauna y Flora Iguaque. Está pensado para turistas de 18 a 35 años que visitan áreas naturales. Cada decisión (qué lleva, qué hace con la basura, si avisa cuando ve una fogata) suma o resta puntos al territorio, y el santuario se ve conservado, en riesgo o afectado según cómo llegó. Busca que el visitante piense qué lleva, regrese con su basura y avise a tiempo.
 
 ## Cómo ver o probar el producto
 
 - **Demo web:** abrir el enlace de arriba en el navegador del celular o del computador. No requiere instalación.
-- **Recorrido:** Tunja (tienda), carretera dentro del bus, parada cerca de Chíquiza y Santuario de Fauna y Flora Iguaque. El territorio empieza en 100 puntos y cada decisión puede restar; el paisaje cambia según el puntaje.
-- **Controles:** arrastrar para mirar alrededor; dentro del bus, los botones de la derecha permiten caminar por el pasillo. Al final, el estado del territorio se puede ver sobre la cámara del celular.
+- **Recorrido:** Tunja (tienda), carretera dentro del bus, parada cerca de Chíquiza y Santuario de Fauna y Flora Iguaque. El territorio empieza en 100 puntos y cada decisión suma o resta. Con 80 o más se llega a un territorio conservado, entre 50 y 79 en riesgo y con menos de 50 afectado; el paisaje cambia según el puntaje.
+- **Controles:** arrastrar para mirar alrededor y tocar los puntos que laten en la escena; dentro del bus, los botones de la derecha permiten caminar por el pasillo. Al final, el estado del territorio se puede ver sobre la cámara del celular.
+- **Sonido y video:** tiene música y sonido ambiente (botón «Sonido» para apagarlos). El video de la pantalla final se reproduce desde YouTube y necesita conexión a internet.
+- **Fuentes de los datos:** botón «Fuentes» en la portada y al cierre (IDEAM, UNGRD, Gobernación de Boyacá).
 - **Archivos pesados** (video del pitch): en el Release **entrega-zonal** (botón *Releases*, a la derecha).
 - Instrucciones para ejecutarlo en un computador: dentro de la carpeta `docs/`, ejecutar `python -m http.server` y abrir `http://localhost:8000`.
 
@@ -58,7 +60,6 @@
 | Música de fondo «Charango improv» | Bmangelo, en Freesound | Creative Commons 0 |
 | Video «Santuario de Iguaque se quema: 800 hectáreas protegidas afectadas y animales atrapados por el fuego» (pantalla final) | Oscar Bueno, en YouTube | Todos los derechos son de su autor. No se copia: se reproduce incrustado desde su canal (https://www.youtube.com/watch?v=NrDgOUcdggg) |
 | Tipografías Barlow y Caveat Brush | Jeremy Tribby; Impallari Type | SIL Open Font License |
-| [Otros recursos que no sean del equipo] | | |
 
 ## Derechos
 
