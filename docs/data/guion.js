@@ -264,9 +264,9 @@ window.GUION = {
 
   // El mensaje de cada estado es texto de pantalla: lo redacta el equipo.
   estados: {
-    conservado: { nombre: 'Territorio conservado', mensaje: '[Mensaje del estado conservado]' },
-    riesgo: { nombre: 'Territorio en riesgo', mensaje: '[Mensaje del estado en riesgo]' },
-    afectado: { nombre: 'Territorio afectado', mensaje: '[Mensaje del estado afectado]' },
+    conservado: { nombre: 'Territorio conservado', mensaje: 'Buenas decisiones, {nombre}. Lo que eligió llevar de visita a estos paisajes ayuda a que todos los puedan admirar, con la misma responsabilidad. Este año hay 90 % de probabilidad de fenómeno de El Niño: cada decisión cuenta. Así se disfruta Iguaque, cuidándolo.' },
+    riesgo: { nombre: 'Territorio en riesgo', mensaje: 'Quizás no pensó en las consecuencias, {nombre}. Pero con decisiones como las suyas y las de otras personas, en tiempos de sequía y de fenómeno de El Niño, crece el riesgo de incendios. Ayude a prevenir.' },
+    afectado: { nombre: 'Territorio afectado', mensaje: 'No tuvo presentes las consecuencias, {nombre}. Recuerde que está de visita en un lugar sagrado y de gran riqueza natural. Por la basura y el descuido, mucha gente ya no quiere más ecoturismo aquí. Mire lo que un incendio les hace a los animales, como pasó el 19 de septiembre de 2026. Prevenir es conservar: en los momentos críticos de la naturaleza, no afectemos el hogar de tantos animales.' },
   },
 
   llamado: {
