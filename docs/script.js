@@ -390,8 +390,9 @@
     el.dato.hidden = false;
     el.dato.replaceChildren(document.createTextNode(conNombre(G.final.dato)), crear('small', G.final.fuenteDato));
     const lista = [{ texto: 'Continuar', clase: 'principal', alHacer: pantallaLlamado }];
-    const v = G.final.video;
-    if (v && (!v.estados || v.estados.includes(e))) lista.push({ texto: v.boton || 'Ver el video', alHacer: abrirVideo });
+    // Puede haber un video distinto según el estado con que se llega.
+    const v = [].concat(G.final.videos || G.final.video || []).find((x) => !x.estados || x.estados.includes(e));
+    if (v) lista.push({ texto: v.boton || 'Ver el video', alHacer: () => abrirVideo(v) });
     if (G.final.enlaceDato) lista.push({ texto: 'Ver la noticia', alHacer: () => window.open(G.final.enlaceDato, '_blank', 'noopener') });
     lista.push({ texto: 'Ver este estado en mi entorno (cámara)', alHacer: abrirCamara });
     botones(el.acciones, lista);
@@ -399,8 +400,7 @@
 
   // Video de un tercero: no se copia al proyecto, se reproduce desde YouTube con
   // su crédito. Mientras suena se silencia el ambiente; al cerrar se quita el video.
-  function abrirVideo() {
-    const v = G.final.video;
+  function abrirVideo(v) {
     el.videoTitulo.textContent = v.titulo || '';
     const marco = document.createElement('iframe');
     marco.src = `https://www.youtube-nocookie.com/embed/${v.youtube}?rel=0`;

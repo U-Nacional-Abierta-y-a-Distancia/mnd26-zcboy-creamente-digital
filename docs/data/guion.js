@@ -253,13 +253,22 @@ window.GUION = {
     enlaceDato: 'https://www.rtvcnoticias.com/actualidad/incendio-en-el-santuario-de-iguaque-boyaca-alcanza-un-90-de-control-tras-afectar-1340',
     // Video de un tercero: se reproduce desde YouTube, no se copia al proyecto.
     // "estados" dice en qué resultados aparece el botón.
-    video: {
-      youtube: 'NrDgOUcdggg',
-      boton: 'Ver el video del incendio',
-      titulo: 'Santuario de Iguaque se quema: 800 hectáreas protegidas afectadas y animales atrapados por el fuego',
-      credito: 'Video de Oscar Bueno, septiembre de 2026. Todos los derechos son de su autor; se reproduce desde su canal de YouTube.',
-      estados: ['riesgo', 'afectado'],
-    },
+    videos: [
+      {
+        youtube: '_3tJjqXv_D0',
+        boton: 'Conocer el santuario',
+        titulo: 'Cinco cosas que debes saber del Santuario de Fauna y Flora Iguaque',
+        credito: 'Video de Parques Nacionales Naturales de Colombia. Todos los derechos son de su autor; se reproduce desde su canal de YouTube.',
+        estados: ['conservado'],
+      },
+      {
+        youtube: 'NrDgOUcdggg',
+        boton: 'Ver el video del incendio',
+        titulo: 'Santuario de Iguaque se quema: 800 hectáreas protegidas afectadas y animales atrapados por el fuego',
+        credito: 'Video de Oscar Bueno, septiembre de 2026. Todos los derechos son de su autor; se reproduce desde su canal de YouTube.',
+        estados: ['riesgo', 'afectado'],
+      },
+    ],
   },
 
   // El mensaje de cada estado es texto de pantalla: lo redacta el equipo.
@@ -280,6 +289,7 @@ window.GUION = {
   fuentes: [
     { dato: '90 % de probabilidad de El Niño a partir de septiembre de 2026', fuente: 'IDEAM y Minambiente, 11 de abril de 2026', url: 'https://www.ideam.gov.co/sala-de-prensa/noticia/ideam-y-minambiente-alertan-de-90-de-probabilidad-de-llegada-del-fenomeno-de-el-nino-para-septiembre' },
     { dato: 'Incendio en el Santuario de Iguaque: 1.340 hectáreas de afectación preliminar, causa en investigación', fuente: 'Gobernación de Boyacá y UNGRD, en RTVC Noticias, 23 de septiembre de 2026', url: 'https://www.rtvcnoticias.com/actualidad/incendio-en-el-santuario-de-iguaque-boyaca-alcanza-un-90-de-control-tras-afectar-1340' },
+    { dato: 'Video «Cinco cosas que debes saber del Santuario de Fauna y Flora Iguaque»', fuente: 'Parques Nacionales Naturales de Colombia. Derechos de su autor; se reproduce desde YouTube', url: 'https://www.youtube.com/watch?v=_3tJjqXv_D0' },
     { dato: 'Video «Santuario de Iguaque se quema: 800 hectáreas protegidas afectadas y animales atrapados por el fuego»', fuente: 'Oscar Bueno, septiembre de 2026. Derechos de su autor; se reproduce desde YouTube', url: 'https://www.youtube.com/watch?v=NrDgOUcdggg' },
     { dato: 'Con El Niño hay menos lluvias, más temperatura y estrés hídrico, y aumenta el riesgo de incendios; 114 municipios en alerta', fuente: 'IDEAM, en Radio Nacional de Colombia, 2026', url: 'https://www.radionacional.co/actualidad/el-fuego-pone-en-alerta-colombia-114-municipios-bajo-amenaza-de-incendios-forestales' },
     { dato: 'Línea gratuita de la UNGRD: 01-8000-113200', fuente: 'UNGRD, 6 de agosto de 2026', url: 'https://portal.gestiondelriesgo.gov.co/Paginas/Noticias/2026/Incendios-forestales-en-Colombia-el-SNGRD-actua-en-el-marco-del-Decreto-de-Desastre-Nacional.aspx' },

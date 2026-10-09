@@ -72,6 +72,7 @@ Los enlaces de las fuentes principales están en el botón «Fuentes» de la dem
 | Foto de carbón (tienda) | Lukas Blazek, en Pexels | Licencia de Pexels |
 | Foto de bengala (tienda) | Francis Seura, en Pexels | Licencia de Pexels |
 | Música de fondo «Charango improv» | Bmangelo, en Freesound | Creative Commons 0 |
+| Video «Cinco cosas que debes saber del Santuario de Fauna y Flora Iguaque» (pantalla final, territorio conservado) | Parques Nacionales Naturales de Colombia, en YouTube | Todos los derechos son de su autor. No se copia: se reproduce incrustado desde su canal (https://www.youtube.com/watch?v=_3tJjqXv_D0) |
 | Video «Santuario de Iguaque se quema: 800 hectáreas protegidas afectadas y animales atrapados por el fuego» (pantalla final) | Oscar Bueno, en YouTube | Todos los derechos son de su autor. No se copia: se reproduce incrustado desde su canal (https://www.youtube.com/watch?v=NrDgOUcdggg) |
 | Tipografías Barlow y Caveat Brush | Jeremy Tribby; Impallari Type | SIL Open Font License |
 
