@@ -37,6 +37,7 @@ Los enlaces de las fuentes principales están en el botón «Fuentes» de la dem
 ## Cómo ver o probar el producto
 
 - **Demo web:** abrir el enlace de arriba en el navegador del celular o del computador. No requiere instalación.
+- **Ejecutable para Windows:** descargar `producto/ProximaParadaIguaque.exe` y abrirlo con doble clic. Trae la demo completa, la abre en el navegador y no instala nada. Si Windows muestra el aviso «Windows protegió su PC», elegir «Más información» y luego «Ejecutar de todas formas»; el código del lanzador está en `producto/proxima_parada.py`.
 - **Recorrido:** Tunja (tienda), carretera dentro del bus, parada cerca de Chíquiza y Santuario de Fauna y Flora Iguaque. El territorio empieza en 100 puntos y cada decisión suma o resta. Con 80 o más se llega a un territorio conservado, entre 50 y 79 en riesgo y con menos de 50 afectado; el paisaje cambia según el puntaje.
 - **Controles:** arrastrar para mirar alrededor y tocar los puntos que laten en la escena; dentro del bus, los botones de la derecha permiten caminar por el pasillo. Al final, el estado del territorio se puede ver sobre la cámara del celular.
 - **Sonido y video:** tiene música y sonido ambiente (botón «Sonido» para apagarlos). El video de la pantalla final se reproduce desde YouTube y necesita conexión a internet.
