@@ -63,8 +63,8 @@ window.GUION = {
 
   // Saludo en la tienda, antes de pedir el nombre. Si el viajero no escribe
   // nada, se le llama con "nombrePorDefecto".
-  saludo: 'Buenas, bienvenido. ¿Cómo se llama?',
-  nombrePorDefecto: 'vecino',
+  saludo: 'Buenas, sumercé. Bienvenido. ¿Cómo se llama?',
+  nombrePorDefecto: 'sumercé',
 
   // Imagen de fondo de la pantalla de inicio. "cobertura" son los grados que
   // abarca una imagen que no es panorámica: 120 la muestra sin estirarla.
@@ -211,16 +211,23 @@ window.GUION = {
       cobertura: 120,
       audio: 'assets/audio/nodo2-parada.mp3',
       ambiente: 'pueblo',
-      texto: '[Nodo 2: situación en la parada de onces]',
+      texto: 'Sumercé, ¿me puede ayudar? Nos están recomendando avisar si vemos algo raro por aquí, como gente haciendo fogatas. Recuerde el número para avisar: 123, o 119 de Bomberos.',
       puntosDeInteres: [
         { tipo: 'recoger', etiqueta: 'Recoger', forma: 'botella', angulo: -35, altura: -22, distancia: 4, puntos: 5 },
       ],
       decisiones: [
         {
-          pregunta: '[Dónde y cómo dejar el elemento]',
+          pregunta: 'Cerca de la parada, unas personas están prendiendo una fogata. ¿Qué hace, sumercé?',
           opciones: [
-            { texto: 'Clasificar y botar bien', puntos: 0, consecuencia: '[Consecuencia de la disposición adecuada]' },
-            { texto: 'Dejar la basura en el piso', puntos: -50, consecuencia: '[Consecuencia del abandono, sin alarmismo]' },
+            { texto: 'Llamar y avisar', puntos: 10 },
+            { texto: 'Ignorarlo', puntos: -10 },
+          ],
+        },
+        {
+          pregunta: '¿Qué hace con la basura de las onces?',
+          opciones: [
+            { texto: 'Clasificar y botar bien', puntos: 0 },
+            { texto: 'Dejar la basura en el piso', puntos: -50 },
           ],
         },
       ],
@@ -247,11 +254,11 @@ window.GUION = {
     // Video de un tercero: se reproduce desde YouTube, no se copia al proyecto.
     // "estados" dice en qué resultados aparece el botón.
     video: {
-      youtube: 'eK4sx0HFNag',
+      youtube: 'NrDgOUcdggg',
       boton: 'Ver el video del incendio',
-      titulo: 'Así combaten el incendio que consume el santuario de Iguaque en Villa de Leyva',
-      credito: 'Video de Blu Radio, septiembre de 2026. Todos los derechos son de su autor; se reproduce desde su canal de YouTube.',
-      estados: ['afectado'],
+      titulo: 'Santuario de Iguaque se quema: 800 hectáreas protegidas afectadas y animales atrapados por el fuego',
+      credito: 'Video de Oscar Bueno, septiembre de 2026. Todos los derechos son de su autor; se reproduce desde su canal de YouTube.',
+      estados: ['riesgo', 'afectado'],
     },
   },
 
@@ -273,7 +280,7 @@ window.GUION = {
   fuentes: [
     { dato: '90 % de probabilidad de El Niño a partir de septiembre de 2026', fuente: 'IDEAM y Minambiente, 11 de abril de 2026', url: 'https://www.ideam.gov.co/sala-de-prensa/noticia/ideam-y-minambiente-alertan-de-90-de-probabilidad-de-llegada-del-fenomeno-de-el-nino-para-septiembre' },
     { dato: 'Incendio en el Santuario de Iguaque: 1.340 hectáreas de afectación preliminar, causa en investigación', fuente: 'Gobernación de Boyacá y UNGRD, en RTVC Noticias, 23 de septiembre de 2026', url: 'https://www.rtvcnoticias.com/actualidad/incendio-en-el-santuario-de-iguaque-boyaca-alcanza-un-90-de-control-tras-afectar-1340' },
-    { dato: 'Video «Así combaten el incendio que consume el santuario de Iguaque en Villa de Leyva»', fuente: 'Blu Radio, septiembre de 2026. Derechos de su autor; se reproduce desde YouTube', url: 'https://www.youtube.com/watch?v=eK4sx0HFNag' },
+    { dato: 'Video «Santuario de Iguaque se quema: 800 hectáreas protegidas afectadas y animales atrapados por el fuego»', fuente: 'Oscar Bueno, septiembre de 2026. Derechos de su autor; se reproduce desde YouTube', url: 'https://www.youtube.com/watch?v=NrDgOUcdggg' },
     { dato: 'Línea gratuita de la UNGRD: 01-8000-113200', fuente: 'UNGRD, 6 de agosto de 2026', url: 'https://portal.gestiondelriesgo.gov.co/Paginas/Noticias/2026/Incendios-forestales-en-Colombia-el-SNGRD-actua-en-el-marco-del-Decreto-de-Desastre-Nacional.aspx' },
   ],
 };
