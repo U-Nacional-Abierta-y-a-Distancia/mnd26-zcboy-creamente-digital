@@ -32,7 +32,7 @@ Responde al reto «Territorios frente a "El Niño"», en el eje de prevención d
 | 438 incendios en 191 municipios de 19 departamentos, con unas 7.153 hectáreas, entre el 16 de junio y el 6 de agosto de 2026 | UNGRD, 6 de agosto de 2026 |
 | 1.340 hectáreas de afectación preliminar por el incendio que empezó el 19 de septiembre de 2026 en Villa de Leyva y alcanzó el Santuario de Iguaque. Causa en investigación | Gobernación de Boyacá y UNGRD, en RTVC Noticias, 23 de septiembre de 2026 |
 
-Los enlaces a cada fuente están en el botón «Fuentes» de la demo.
+Los enlaces de las fuentes principales están en el botón «Fuentes» de la demo.
 
 ## Cómo ver o probar el producto
 
