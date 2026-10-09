@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>CreaMente Digital</title>
   <meta name="description" content="Recorrido interactivo 360° sobre prevención de incendios de la cobertura vegetal en Boyacá.">
+  <!-- Tipografías: Caveat Brush para el título (letra de brocha) y Barlow para todo lo demás (letra de señal de carretera) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=Caveat+Brush&display=swap">
   <link rel="stylesheet" href="style.css">
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
@@ -45,6 +49,30 @@
     </div>
   </header>
 
+  <!-- Portada: título, presentación, equipo y botón para comenzar -->
+  <section id="portada" hidden>
+    <p id="portada-evento"></p>
+    <div id="portada-centro">
+      <img id="logo" alt="" hidden>
+      <h1 id="portada-titulo"></h1>
+      <p id="portada-ruta"></p>
+      <p id="portada-texto"></p>
+      <button id="portada-comenzar" type="button" class="senal">Comenzar el recorrido <span aria-hidden="true">→</span></button>
+      <ul id="pistas">
+        <li>Mejor con audífonos</li>
+        <li>Arrastra para mirar alrededor</li>
+        <li>Toca los puntos que laten</li>
+      </ul>
+    </div>
+    <footer id="portada-pie">
+      <p id="portada-equipo"></p>
+      <p>
+        <button id="portada-creditos" type="button" class="discreto">Créditos</button>
+        <button id="portada-fuentes" type="button" class="discreto">Fuentes</button>
+      </p>
+    </footer>
+  </section>
+
   <!-- Controles para caminar por el pasillo del bus -->
   <div id="caminar" hidden>
     <button id="caminar-adelante" type="button">Caminar al fondo</button>
@@ -53,7 +81,6 @@
 
   <!-- Tarjeta inferior: texto del nodo y opciones -->
   <main id="tarjeta" aria-live="polite">
-    <img id="logo" alt="" hidden>
     <p id="lugar"></p>
     <h1 id="titulo"></h1>
     <p id="texto"></p>
@@ -66,12 +93,6 @@
     </form>
     <div id="opciones"></div>
     <p id="dato" hidden></p>
-    <!-- Indicaciones de uso: solo se ven en la pantalla de inicio -->
-    <ul id="pistas">
-      <li>Arrastra para mirar alrededor</li>
-      <li>Toca los puntos que laten</li>
-      <li>Activa el sonido</li>
-    </ul>
     <div id="acciones"></div>
   </main>
 
@@ -94,6 +115,13 @@
     <button id="vitrina-listo" type="button" class="principal">Listo, subir al bus</button>
   </dialog>
 
+  <!-- Créditos -->
+  <dialog id="creditos">
+    <h2>Créditos</h2>
+    <div id="creditos-contenido"></div>
+    <form method="dialog"><button type="submit">Cerrar</button></form>
+  </dialog>
+
   <!-- Fuentes -->
   <dialog id="fuentes">
     <h2>Fuentes</h2>
@@ -102,6 +130,7 @@
   </dialog>
 
   <audio id="ambiente" loop preload="none"></audio>
+  <audio id="musica" loop preload="none"></audio>
 
   <script src="data/guion.js"></script>
   <script src="script.js"></script>

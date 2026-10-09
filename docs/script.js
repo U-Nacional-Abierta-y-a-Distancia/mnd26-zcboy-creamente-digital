@@ -14,7 +14,11 @@
     fuentes: $('fuentes'), fuentesLista: $('fuentes-lista'),
     puntos: $('puntos'), medidor: $('medidor'), relleno: $('medidor-relleno'), aviso: $('aviso'),
     saludo: $('saludo'), nombre: $('nombre'),
-    puntosInteres: $('puntos-interes'), sonido: $('sonido'), logo: $('logo'), pistas: $('pistas'),
+    portada: $('portada'), portadaEvento: $('portada-evento'), portadaTitulo: $('portada-titulo'), portadaRuta: $('portada-ruta'),
+    portadaTexto: $('portada-texto'), portadaEquipo: $('portada-equipo'), portadaComenzar: $('portada-comenzar'),
+    portadaCreditos: $('portada-creditos'), portadaFuentes: $('portada-fuentes'),
+    creditos: $('creditos'), creditosContenido: $('creditos-contenido'),
+    puntosInteres: $('puntos-interes'), sonido: $('sonido'), musica: $('musica'), logo: $('logo'), 
     vitrina: $('vitrina'), vitrinaTitulo: $('vitrina-titulo'), vitrinaCuenta: $('vitrina-cuenta'),
     vitrinaProductos: $('vitrina-productos'), vitrinaListo: $('vitrina-listo'),
   };
@@ -92,17 +96,38 @@
     mostrarInterior(false);
     quitarPuntosDeInteres();
     ponerEscena(G.portada || G.nodos[0]);
-    callar();
-    escribir({ lugar: G.territorio, titulo: G.titulo, texto: G.presentacion });
-    botones(el.acciones, [
-      { texto: 'Comenzar el recorrido', clase: 'principal', alHacer: pantallaNombre },
-      { texto: 'Ver fuentes', clase: 'discreto', alHacer: abrirFuentes },
-    ]);
+    callar(true);
+    escribir({});
+    const c = G.creditos || {};
+    el.portadaEvento.textContent = c.evento || '';
+    el.portadaTitulo.textContent = G.titulo;
+    el.portadaRuta.textContent = G.territorio;
+    el.portadaTexto.textContent = G.presentacion;
+    el.portadaEquipo.textContent = `Una experiencia de ${G.equipo}: ${(c.integrantes || []).map((i) => i.nombre).join(', ')}.`;
+    el.portada.hidden = false;
   }
+
+  el.portadaComenzar.addEventListener('click', pantallaNombre);
+  el.portadaFuentes.addEventListener('click', abrirFuentes);
+  el.portadaCreditos.addEventListener('click', () => {
+    const c = G.creditos || {};
+    const bloque = (titulo, lineas) => {
+      const s2 = document.createElement('section');
+      s2.append(crear('h3', titulo), ...lineas.map((l) => crear('p', l)));
+      return s2;
+    };
+    el.creditosContenido.replaceChildren(
+      bloque('Equipo ' + G.equipo, (c.integrantes || []).map((i) => `${i.nombre} · ${i.rol}`)),
+      bloque('Marco', [c.evento, c.institucion, c.zona].filter(Boolean)),
+      bloque('Recursos de terceros', c.recursos || []),
+    );
+    el.creditos.showModal();
+  });
 
   // Saludo: pregunta el nombre y lo usa durante todo el recorrido.
   function pantallaNombre() {
     document.body.dataset.pantalla = 'nombre';
+    el.portada.hidden = true;
     // El saludo ocurre ya dentro de la tienda, con el tendero de fondo.
     ponerEscena(G.nodos[0]);
     sonarLugar(G.nodos[0]);
@@ -947,6 +972,7 @@
     lugarSonando = lugar;
     callar();
     if (!sonidoActivo || !lugar) return;
+    sonarMusica();
     hayArchivo(lugar.audio).then((si) => {
       if (lugarSonando !== lugar || !sonidoActivo) return;
       if (si) {
@@ -959,8 +985,17 @@
     });
   }
 
-  function callar() {
+  // Música de fondo: suena bajita durante todo el recorrido, por debajo del ambiente.
+  function sonarMusica() {
+    if (!G.musica || !el.musica.paused) return;
+    if (!el.musica.src) el.musica.src = G.musica;
+    el.musica.volume = G.volumenMusica == null ? 0.22 : G.volumenMusica;
+    el.musica.play().catch(() => {});
+  }
+
+  function callar(todo) {
     el.ambiente.pause();
+    if (todo) el.musica.pause();
     if (sintetico) { sintetico.parar(); sintetico = null; }
   }
 
@@ -968,7 +1003,7 @@
     sonidoActivo = !sonidoActivo;
     el.sonido.textContent = sonidoActivo ? 'Sonido: sí' : 'Sonido: no';
     el.sonido.setAttribute('aria-pressed', String(sonidoActivo));
-    if (sonidoActivo) sonarLugar(lugarSonando); else callar();
+    if (sonidoActivo) sonarLugar(lugarSonando); else callar(true);
   });
 
   function sintetizar(tipo) {
@@ -1100,7 +1135,8 @@
   }
 
   document.title = `${G.titulo} · ${G.equipo}`;
-  if (G.logo) { el.logo.onload = () => { el.logo.hidden = false; }; el.logo.src = G.logo; }
+  // Si existe el logo, reemplaza al título escrito.
+  if (G.logo) { el.logo.onload = () => { el.logo.hidden = false; el.portadaTitulo.classList.add('oculto'); }; el.logo.alt = G.titulo; el.logo.src = G.logo; }
   // Todo arranca cuando la escena 3D ya existe: antes de eso no se pueden
   // cargar modelos ni tocar el cielo.
   const arrancar = () => { prepararBus(); prepararInterior(); prepararEntorno(); reiniciar(); };

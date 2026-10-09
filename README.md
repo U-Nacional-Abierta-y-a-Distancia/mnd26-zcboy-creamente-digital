@@ -2,7 +2,7 @@
   <img src="assets/encabezado.png" alt="UNAD, Universidad Nacional Abierta y a Distancia, y Segundas Olimpiadas Unadistas 2026" width="560">
 </p>
 
-# 4 Paradas
+# Próxima parada: Iguaque
 
 > Maratón de Innovación en Narrativas Digitales · Segundas Olimpiadas Unadistas 2026 · Fase zonal
 
@@ -11,7 +11,7 @@
 | Equipo | CreaMente Digital |
 | Zona / Centro(s) | ZCBOY / [centros de los integrantes] |
 | Tipo de producto (Tabla 1 del documento técnico) | Realidad virtual / 360° y web interactiva [confirmar con el equipo] |
-| Integrantes (solo nombres completos) | Cesar David Monroy Rodríguez, Adriana Fernanda González Guerrero, [tercer integrante] |
+| Integrantes (solo nombres completos) | Adriana Fernanda González Guerrero, Andrés Felipe Morales Vega, Cesar David Monroy Rodríguez |
 | Enlace al demo web (si aplica) | https://u-nacional-abierta-y-a-distancia.github.io/mnd26-zcboy-creamente-digital/ |
 
 **No escriba aquí cédulas, teléfonos ni correos.** Este repositorio se hace público el viernes 9 de octubre a las 12:00 m.
@@ -49,6 +49,14 @@
 | Foto de termo de acero (tienda) | Mikhail Nilov, en Pexels | Licencia de Pexels |
 | Foto de bolsa de residuos (tienda) | Suparerg Suksai, en Pexels | Licencia de Pexels |
 | Foto de cigarrillos (tienda) | Uitbundig, en Pexels | Licencia de Pexels |
+| Foto de lonchera (tienda) | Jacob Yavin, en Pexels | Licencia de Pexels |
+| Foto de fruta (tienda) | alleksana, en Pexels | Licencia de Pexels |
+| Foto de papas de paquete (tienda) | Srattha Nualsate, en Pexels | Licencia de Pexels |
+| Foto de vasos desechables (tienda) | Mikhail Nilov, en Pexels | Licencia de Pexels |
+| Foto de carbón (tienda) | Lukas Blazek, en Pexels | Licencia de Pexels |
+| Foto de bengala (tienda) | Francis Seura, en Pexels | Licencia de Pexels |
+| Música de fondo «Charango improv» | Bmangelo, en Freesound | Creative Commons 0 |
+| Tipografías Barlow y Caveat Brush | Jeremy Tribby; Impallari Type | SIL Open Font License |
 | [Otros recursos que no sean del equipo] | | |
 
 ## Derechos

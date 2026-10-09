@@ -31,11 +31,35 @@
  *    'pueblo' (murmullo y aves), 'motor' (bus andando) o 'paramo' (viento y aves).
  */
 window.GUION = {
-  titulo: '4 Paradas',
+  titulo: 'Próxima parada: Iguaque',
   equipo: 'CreaMente Digital',
-  logo: 'assets/images/logo.png', // aparece en la pantalla de inicio si el archivo existe
+  // Imagen del título (el letrero). Aparece en la portada y reemplaza al título escrito.
+  logo: 'assets/images/portada-titulo.jpg',
+
+  // Créditos: se muestran en la portada y en la ventana «Créditos».
+  creditos: {
+    evento: 'Maratón de Innovación en Narrativas Digitales · II Olimpiadas Unadistas 2026',
+    institucion: 'Universidad Nacional Abierta y a Distancia (UNAD)',
+    zona: 'Zona Centro Boyacá (ZCBOY) · Fase zonal',
+    integrantes: [
+      { nombre: 'Adriana Fernanda González Guerrero', rol: 'Docente de Ingeniería de Sistemas' },
+      { nombre: 'Andrés Felipe Morales Vega', rol: 'Estudiante de Ingeniería de Sistemas' },
+      { nombre: 'Cesar David Monroy Rodríguez', rol: 'Docente de Ingeniería Multimedia' },
+    ],
+    recursos: [
+      'Fotos de los productos: Pexels (licencia de Pexels).',
+      'Música de fondo: «Charango improv», de Bmangelo, en Freesound (Creative Commons 0).',
+      'Vista 360° y modelos 3D: biblioteca A-Frame (licencia MIT).',
+      'Tipografías: Barlow y Caveat Brush (licencia Open Font).',
+    ],
+  },
+
+  // Música de fondo de todo el recorrido. Suena por debajo del ambiente de cada
+  // lugar. "volumenMusica" va de 0 a 1.
+  musica: 'assets/audio/musica.mp3',
+  volumenMusica: 0.22,
   territorio: 'Tunja → Chíquiza → Santuario de Fauna y Flora Iguaque · Boyacá',
-  presentacion: '[Texto de inicio: quién es el viajero, a dónde va y por qué importa ahora]',
+  presentacion: 'En la vida hay muchas paradas. Lo que decides en el camino llega contigo a la próxima.',
 
   // Saludo en la tienda, antes de pedir el nombre. Si el viajero no escribe
   // nada, se le llama con "nombrePorDefecto".
@@ -85,7 +109,7 @@ window.GUION = {
 
   // Puntos del territorio. De 80 a 100 sigue verde (conservado); de 40 a 79 está
   // en riesgo; por debajo de 40, afectado. El paisaje se apaga de forma gradual.
-  // Reparto actual de lo que se puede perder: tienda 20, carretera 30, parada 50.
+  // Reparto actual de lo que se puede perder: tienda 25, carretera 25, parada 50.
   puntos: { inicio: 100, conservado: 80, riesgo: 40 },
 
   nodos: [
@@ -120,10 +144,23 @@ window.GUION = {
               ],
             },
             {
-              titulo: 'Para el camino',
+              titulo: 'Para comer',
               opciones: [
-                { texto: 'No llevar', puntos: 0, imagen: 'assets/images/no-llevar.svg' },
-                { texto: 'Cigarrillos y encendedor', puntos: -10, lleva: 'Cigarrillos', imagen: 'assets/images/cigarrillos.jpg' },
+                { texto: 'Lonchera con comida', puntos: 0, lleva: 'Lonchera', imagen: 'assets/images/lonchera.jpg' },
+                { texto: 'Fruta', puntos: 0, lleva: 'Fruta', imagen: 'assets/images/fruta.jpg' },
+                { texto: 'Papas de paquete', puntos: -5, lleva: 'Paquete de papas', imagen: 'assets/images/papas-paquete.jpg' },
+                { texto: 'Vasos y platos desechables', puntos: -5, lleva: 'Desechables', imagen: 'assets/images/desechables.jpg' },
+              ],
+            },
+            {
+              // Lo que cada tipo de visitante lleva para su plan. No todos fuman:
+              // hay quien piensa en un asado o en celebrar.
+              titulo: 'Para el plan',
+              opciones: [
+                { texto: 'Nada de esto', puntos: 0, imagen: 'assets/images/no-llevar.svg' },
+                { texto: 'Cigarrillos', puntos: -10, lleva: 'Cigarrillos', imagen: 'assets/images/cigarrillos.jpg' },
+                { texto: 'Carbón para asado', puntos: -10, lleva: 'Carbón', imagen: 'assets/images/carbon.jpg' },
+                { texto: 'Pólvora', puntos: -10, lleva: 'Pólvora', imagen: 'assets/images/polvora.jpg' },
               ],
             },
             {
@@ -157,7 +194,7 @@ window.GUION = {
           pregunta: '[Qué hacer con el residuo o elemento]',
           opciones: [
             { texto: 'Guardar la basura', puntos: 0, consecuencia: '[Consecuencia de guardarla]' },
-            { texto: 'Botarla por la ventana', puntos: -30, consecuencia: '[Consecuencia de botarla, sin alarmismo]' },
+            { texto: 'Botarla por la ventana', puntos: -25, consecuencia: '[Consecuencia de botarla, sin alarmismo]' },
           ],
         },
       ],
