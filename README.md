@@ -10,7 +10,7 @@
 |---|---|
 | Equipo | CreaMente Digital |
 | Zona / Centro(s) | ZCBOY (Zona Centro Boyacá) / CEAD Tunja |
-| Tipo de producto (Tabla 1 del documento técnico) | Realidad extendida: recorrido 360° / realidad virtual en web, con narrativa interactiva |
+| Tipo de producto (Tabla 1 del documento técnico) | Prototipo de App / Web Interactiva (recorrido 360° con decisiones) |
 | Integrantes (solo nombres completos) | Adriana Fernanda González Guerrero, Andrés Felipe Morales Vega, Cesar David Monroy Rodríguez |
 | Enlace al demo web (si aplica) | https://u-nacional-abierta-y-a-distancia.github.io/mnd26-zcboy-creamente-digital/ |
 
