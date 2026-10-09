@@ -56,6 +56,7 @@
 | Foto de carbón (tienda) | Lukas Blazek, en Pexels | Licencia de Pexels |
 | Foto de bengala (tienda) | Francis Seura, en Pexels | Licencia de Pexels |
 | Música de fondo «Charango improv» | Bmangelo, en Freesound | Creative Commons 0 |
+| Video «Así combaten el incendio que consume el santuario de Iguaque en Villa de Leyva» (pantalla final) | Blu Radio, en YouTube | Todos los derechos son de su autor. No se copia: se reproduce incrustado desde su canal (https://www.youtube.com/watch?v=eK4sx0HFNag) |
 | Tipografías Barlow y Caveat Brush | Jeremy Tribby; Impallari Type | SIL Open Font License |
 | [Otros recursos que no sean del equipo] | | |
 

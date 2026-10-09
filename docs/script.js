@@ -12,6 +12,7 @@
     caminar: $('caminar'), adelante: $('caminar-adelante'), atras: $('caminar-atras'),
     camara: $('camara'), video: $('video'), camaraEstado: $('camara-estado'), camaraCerrar: $('camara-cerrar'),
     fuentes: $('fuentes'), fuentesLista: $('fuentes-lista'),
+    noticia: $('noticia'), videoTitulo: $('video-titulo'), videoMarco: $('video-marco'), videoCredito: $('video-credito'),
     puntos: $('puntos'), medidor: $('medidor'), relleno: $('medidor-relleno'), aviso: $('aviso'),
     saludo: $('saludo'), nombre: $('nombre'),
     portada: $('portada'), portadaEvento: $('portada-evento'), portadaTitulo: $('portada-titulo'), portadaRuta: $('portada-ruta'),
@@ -389,10 +390,33 @@
     el.dato.hidden = false;
     el.dato.replaceChildren(document.createTextNode(conNombre(G.final.dato)), crear('small', G.final.fuenteDato));
     const lista = [{ texto: 'Continuar', clase: 'principal', alHacer: pantallaLlamado }];
+    const v = G.final.video;
+    if (v && (!v.estados || v.estados.includes(e))) lista.push({ texto: v.boton || 'Ver el video', alHacer: abrirVideo });
     if (G.final.enlaceDato) lista.push({ texto: 'Ver la noticia', alHacer: () => window.open(G.final.enlaceDato, '_blank', 'noopener') });
     lista.push({ texto: 'Ver este estado en mi entorno (cámara)', alHacer: abrirCamara });
     botones(el.acciones, lista);
   }
+
+  // Video de un tercero: no se copia al proyecto, se reproduce desde YouTube con
+  // su crédito. Mientras suena se silencia el ambiente; al cerrar se quita el video.
+  function abrirVideo() {
+    const v = G.final.video;
+    el.videoTitulo.textContent = v.titulo || '';
+    const marco = document.createElement('iframe');
+    marco.src = `https://www.youtube-nocookie.com/embed/${v.youtube}?rel=0`;
+    marco.title = v.titulo || 'Video';
+    marco.allow = 'accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+    marco.referrerPolicy = 'strict-origin-when-cross-origin';
+    marco.allowFullscreen = true;
+    el.videoMarco.replaceChildren(marco);
+    const enlace = crear('a', 'Ver en YouTube');
+    enlace.href = `https://www.youtube.com/watch?v=${v.youtube}`;
+    enlace.target = '_blank'; enlace.rel = 'noopener';
+    el.videoCredito.replaceChildren(document.createTextNode((v.credito || '') + ' '), enlace);
+    callar(true);
+    el.noticia.showModal();
+  }
+  el.noticia.addEventListener('close', () => { el.videoMarco.replaceChildren(); sonarLugar(G.final); });
 
   function pantallaLlamado() {
     document.body.dataset.pantalla = 'llamado';

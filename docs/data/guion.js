@@ -244,6 +244,15 @@ window.GUION = {
     dato: 'El 19 de septiembre de 2026 empezó un incendio en Villa de Leyva que alcanzó el Santuario de Iguaque. La afectación preliminar fue de 1.340 hectáreas y su causa está en investigación.',
     fuenteDato: 'Gobernación de Boyacá y UNGRD, en RTVC Noticias, 23 de septiembre de 2026',
     enlaceDato: 'https://www.rtvcnoticias.com/actualidad/incendio-en-el-santuario-de-iguaque-boyaca-alcanza-un-90-de-control-tras-afectar-1340',
+    // Video de un tercero: se reproduce desde YouTube, no se copia al proyecto.
+    // "estados" dice en qué resultados aparece el botón.
+    video: {
+      youtube: 'eK4sx0HFNag',
+      boton: 'Ver el video del incendio',
+      titulo: 'Así combaten el incendio que consume el santuario de Iguaque en Villa de Leyva',
+      credito: 'Video de Blu Radio, septiembre de 2026. Todos los derechos son de su autor; se reproduce desde su canal de YouTube.',
+      estados: ['afectado'],
+    },
   },
 
   // El mensaje de cada estado es texto de pantalla: lo redacta el equipo.
@@ -264,6 +273,7 @@ window.GUION = {
   fuentes: [
     { dato: '90 % de probabilidad de El Niño a partir de septiembre de 2026', fuente: 'IDEAM y Minambiente, 11 de abril de 2026', url: 'https://www.ideam.gov.co/sala-de-prensa/noticia/ideam-y-minambiente-alertan-de-90-de-probabilidad-de-llegada-del-fenomeno-de-el-nino-para-septiembre' },
     { dato: 'Incendio en el Santuario de Iguaque: 1.340 hectáreas de afectación preliminar, causa en investigación', fuente: 'Gobernación de Boyacá y UNGRD, en RTVC Noticias, 23 de septiembre de 2026', url: 'https://www.rtvcnoticias.com/actualidad/incendio-en-el-santuario-de-iguaque-boyaca-alcanza-un-90-de-control-tras-afectar-1340' },
+    { dato: 'Video «Así combaten el incendio que consume el santuario de Iguaque en Villa de Leyva»', fuente: 'Blu Radio, septiembre de 2026. Derechos de su autor; se reproduce desde YouTube', url: 'https://www.youtube.com/watch?v=eK4sx0HFNag' },
     { dato: 'Línea gratuita de la UNGRD: 01-8000-113200', fuente: 'UNGRD, 6 de agosto de 2026', url: 'https://portal.gestiondelriesgo.gov.co/Paginas/Noticias/2026/Incendios-forestales-en-Colombia-el-SNGRD-actua-en-el-marco-del-Decreto-de-Desastre-Nacional.aspx' },
   ],
 };
