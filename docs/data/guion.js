@@ -270,10 +270,10 @@ window.GUION = {
   },
 
   llamado: {
-    titulo: '[Llamado a la acción]',
-    texto: '[Acción concreta que el viajero puede hacer después del recorrido]',
-    boton: '[Texto del botón]',
-    enlace: '', // URL del canal institucional, si aplica
+    titulo: 'Para la próxima visita, {nombre}',
+    texto: 'Según el IDEAM, con el fenómeno de El Niño llueve menos, sube la temperatura y la vegetación se seca. En esas condiciones, cualquier descuido aumenta el riesgo de incendio. Si lleva a estas zonas productos que no son, o deja allá lo que llevó, causa problemas. Antes de salir piense qué lleva, tráigase su basura y, si ve algo raro, avise al 123 o al 119 de Bomberos.',
+    boton: 'Ver la alerta del IDEAM',
+    enlace: 'https://www.radionacional.co/actualidad/el-fuego-pone-en-alerta-colombia-114-municipios-bajo-amenaza-de-incendios-forestales', // URL del canal institucional, si aplica
   },
 
   // Solo fuentes que un integrante haya abierto y verificado.
@@ -281,6 +281,7 @@ window.GUION = {
     { dato: '90 % de probabilidad de El Niño a partir de septiembre de 2026', fuente: 'IDEAM y Minambiente, 11 de abril de 2026', url: 'https://www.ideam.gov.co/sala-de-prensa/noticia/ideam-y-minambiente-alertan-de-90-de-probabilidad-de-llegada-del-fenomeno-de-el-nino-para-septiembre' },
     { dato: 'Incendio en el Santuario de Iguaque: 1.340 hectáreas de afectación preliminar, causa en investigación', fuente: 'Gobernación de Boyacá y UNGRD, en RTVC Noticias, 23 de septiembre de 2026', url: 'https://www.rtvcnoticias.com/actualidad/incendio-en-el-santuario-de-iguaque-boyaca-alcanza-un-90-de-control-tras-afectar-1340' },
     { dato: 'Video «Santuario de Iguaque se quema: 800 hectáreas protegidas afectadas y animales atrapados por el fuego»', fuente: 'Oscar Bueno, septiembre de 2026. Derechos de su autor; se reproduce desde YouTube', url: 'https://www.youtube.com/watch?v=NrDgOUcdggg' },
+    { dato: 'Con El Niño hay menos lluvias, más temperatura y estrés hídrico, y aumenta el riesgo de incendios; 114 municipios en alerta', fuente: 'IDEAM, en Radio Nacional de Colombia, 2026', url: 'https://www.radionacional.co/actualidad/el-fuego-pone-en-alerta-colombia-114-municipios-bajo-amenaza-de-incendios-forestales' },
     { dato: 'Línea gratuita de la UNGRD: 01-8000-113200', fuente: 'UNGRD, 6 de agosto de 2026', url: 'https://portal.gestiondelriesgo.gov.co/Paginas/Noticias/2026/Incendios-forestales-en-Colombia-el-SNGRD-actua-en-el-marco-del-Decreto-de-Desastre-Nacional.aspx' },
   ],
 };
